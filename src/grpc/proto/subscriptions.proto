@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package release_notif.v1;
+
+service SubscriptionService {
+  rpc Subscribe (SubscribeRequest) returns (SubscribeResponse);
+  rpc ConfirmSubscription (TokenRequest) returns (MessageResponse);
+  rpc UnsubscribeSubscription (TokenRequest) returns (MessageResponse);
+  rpc GetSubscriptionsByEmail (EmailRequest) returns (SubscriptionsResponse);
+}
+
+message SubscribeRequest {
+  string email = 1;
+  string repository = 2;
+}
+
+message SubscribeResponse {
+  string message = 1;
+  string email = 2;
+  string repository = 3;
+}
+
+message TokenRequest {
+  string token = 1;
+}
+
+message MessageResponse {
+  string message = 1;
+}
+
+message EmailRequest {
+  string email = 1;
+}
+
+message SubscriptionItem {
+  string repository = 1;
+  string status = 2;
+  string createdAt = 3;
+}
+
+message SubscriptionsResponse {
+  string email = 1;
+  repeated SubscriptionItem subscriptions = 2;
+}
