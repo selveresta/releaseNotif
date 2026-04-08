@@ -1,3 +1,5 @@
+# The implementation of this project was assisted by the Codex agent, while the architecture, system design, and key decisions were defined by me.
+
 # GitHub Release Notification API
 
 Monolith MVP for subscribing email addresses to GitHub repository release notifications.
